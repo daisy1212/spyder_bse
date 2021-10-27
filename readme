@@ -1,0 +1,36 @@
+--进入对应目录
+
+win+r +cmd 
+
+d:
+cd/d D:\bse_data\qianhg\python
+
+
+--启动对应项目 
+scrapy startproject fund
+
+
+--进入fund目录 进入项目中，新建一个项目，名为eastmoney,命令如下所示：
+ 
+cd/d D:\bse_data\qianhg\python\fund 
+scrapy genspider eastmoney fund.eastmoney.com
+
+
+--开始运行 
+scrapy crawl eastmoney
+
+
+使用方法
+
+from fake_useragent import UserAgent
+ 
+ua = UserAgent(path='./fake_useragent.json')
+ 
+print(ua.chrome)
+
+ua = UserAgent(path=location)
+
+def get_header():
+	location = '''D:/bse_data/qianhg/python/fund/fake_useragent_0.1.11.json'''
+	ua =UserAgent(path=location)
+	return ua.random
