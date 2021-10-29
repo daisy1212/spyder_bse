@@ -21,9 +21,9 @@ class EastmoneySpider(scrapy.Spider):
             item['code'] = response.xpath('//*[@class="fundcodeInfo"]/span[1]/text()').extract()[0]    # 基金代码
         except:
             item['code'] = response.xpath('//*[@class="fundDetail-tit"]/div/span[2]/text()').extract()[0]
-        item['name'] = response.xpath('//*[@class="fundDetail-tit"]/div[1]/text()').extract()[0]     # 基金名称
-        item['service_Charge'] = response.xpath('//*[@class="buyWayStatic"]/div[5]/span[2]/span[2]/text()').extract_first('暂停申购')   # 手续费
-        item['purchase_amount'] = response.xpath('//*[@id="moneyAmountTxt"]/@data-placeholder').extract_first('暂停申购')    # 起购金额
+            item['name'] = response.xpath('//*[@class="fundDetail-tit"]/div[1]/text()').extract()[0]     # 基金名称
+            item['service_Charge'] = response.xpath('//*[@class="buyWayStatic"]/div[5]/span[2]/span[2]/text()').extract_first('暂停申购')   # 手续费
+            item['purchase_amount'] = response.xpath('//*[@id="moneyAmountTxt"]/@data-placeholder').extract_first('暂停申购')    # 起购金额
         try:
             item['recent1Month'] = response.xpath('//*[@class="dataItem01"]/dd[2]/span[2]/text()').extract()[0]     # 最近一月
             item['recent3Month'] = response.xpath('//*[@class="dataItem02"]/dd[2]/span[2]/text()').extract()[0]     # 最近三月
@@ -38,8 +38,8 @@ class EastmoneySpider(scrapy.Spider):
             item['recent1Year'] = response.xpath('//*[@class="dataItem01"]/dd[2]/span[2]/text()').extract()[0]
             item['recent3Year'] = response.xpath('//*[@class="dataItem02"]/dd[2]/span[2]/text()').extract()[0]
             item['from_Build'] = response.xpath('//*[@class="dataItem03"]/dd[2]/span[2]/text()').extract()[0]
-        item['type'] = response.xpath('//*[@class="infoOfFund"]/table/tr[1]/td[1]/a/text()').extract()[0]
-        item['fund_scale'] = response.xpath('//*[@class="infoOfFund"]/table/tr[1]/td[2]/text()').extract()[0].split("：")[1]    # 基金规模
-        item['establishment_date'] = response.xpath('//*[@class="infoOfFund"]/table/tr[2]/td[1]/text()').extract()[0].split("：")[1]    # 成立日期
-        item['company'] = response.xpath('//*[@class="infoOfFund"]/table/tr[2]/td[2]/a/text()').extract()[0]    # 公司
+            item['type'] = response.xpath('//*[@class="infoOfFund"]/table/tr[1]/td[1]/a/text()').extract()[0]
+            item['fund_scale'] = response.xpath('//*[@class="infoOfFund"]/table/tr[1]/td[2]/text()').extract()[0].split("：")[1]    # 基金规模
+            item['establishment_date'] = response.xpath('//*[@class="infoOfFund"]/table/tr[2]/td[1]/text()').extract()[0].split("：")[1]    # 成立日期
+            item['company'] = response.xpath('//*[@class="infoOfFund"]/table/tr[2]/td[2]/a/text()').extract()[0]    # 公司
         yield item
